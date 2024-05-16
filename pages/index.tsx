@@ -1,9 +1,12 @@
 import { useState } from "react";
 import Porta from "../components/Porta";
 import PortaModel from "../model/porta";
+import { criarPortas } from "../functions/porta";
 
 export default function Home() {
   const [p1, setP1] = useState(new PortaModel(1));
+
+  console.log(criarPortas(3, 2));
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
