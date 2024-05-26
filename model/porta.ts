@@ -1,10 +1,15 @@
 export default class PortaModel {
-  #numero: number
-  #temPresente: boolean
-  #selecionada:boolean
-  #aberta: boolean
+  #numero: number;
+  #temPresente: boolean;
+  #selecionada: boolean;
+  #aberta: boolean;
 
-  constructor(numero: number, temPresente = false, selecionada: boolean, aberta = false) {
+  constructor(
+    numero: number,
+    temPresente = false,
+    selecionada: boolean,
+    aberta = false
+  ) {
     this.#numero = numero;
     this.#temPresente = temPresente;
     this.#selecionada = selecionada;
@@ -27,18 +32,37 @@ export default class PortaModel {
     return this.#aberta;
   }
 
+  get fechada() {
+    return !this.#aberta;
+  }
+
   desselecionar() {
     const selecionada = false;
-    return new PortaModel(this.numero, this.temPresente, selecionada, this.aberta);
+    return new PortaModel(
+      this.numero,
+      this.temPresente,
+      selecionada,
+      this.aberta
+    );
   }
 
   alteranarSelecao() {
     const selecionada = !this.selecionada;
-    return new PortaModel(this.numero, this.temPresente, selecionada, this.aberta);
+    return new PortaModel(
+      this.numero,
+      this.temPresente,
+      selecionada,
+      this.aberta
+    );
   }
 
   abrir() {
     const aberta = true;
-    return new PortaModel(this.numero, this.temPresente, this.selecionada, aberta);
+    return new PortaModel(
+      this.numero,
+      this.temPresente,
+      this.selecionada,
+      aberta
+    );
   }
 }
